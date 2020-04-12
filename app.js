@@ -104,14 +104,9 @@ client.on('guildMemberAdd', member => {
       {
         if(message.member.hasPermission("MANAGE_MESSAGES" || "ADMINISTRATOR"))
         {
-          if(!agrs[0])
-          {
-            message.reply("You must to specify a number of messages to delete!")            
-          }
-          message.channel.bulkDelete(args[0]).then(() =>
-          {
-            message.channel.reply(`Purged ${args[0]} Messages!`).then(message => message.delete(3000))
-          });
+          channel.bulkDelete(5)
+          .then(messages => message.reply(`Bulk deleted ${messages.size} messages`))
+          .catch(console.error);
         }
         else
         {
