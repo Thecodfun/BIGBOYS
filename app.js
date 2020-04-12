@@ -50,19 +50,13 @@
      m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
    }
 
-    if(command === "ban")
+if(command === "getid")
 {
-  if(message.author.hasPermission("BAN_MEMBERS"))
-  {
-   
-  var member = message.mentions.members.first();
-  member.ban("You have been banned!")
-  message.reply("User:" + member + " :white_check_mark: Has been banned! :white_check_mark:")   
-  } 
-  else
-  {
-    message.reply(":x: You can't ban other users! :x:")
-  }
+  { 
+    var member= message.mentions.members.first();
+    var id = member.id.toString();
+
+    message.reply("this is:" + member+"'s" + " id: " + id)}
 }
 
 if(command === "help") {
