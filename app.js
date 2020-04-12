@@ -108,8 +108,8 @@ client.on('guildMemberAdd', member => {
           {
             message.reply("You **MUST** input a number of messages to delete!")
           }
-            message.channel.bulkDelete(parseInt(args[0]({limit: 99})) + 1).then(() => {
-            message.channel.send(`Purged ${args[0] + 1} messages!`).then(msg => msg.delete(3000));});  
+            message.channel.bulkDelete(parseInt(args[0] + 1)).then(() => {
+            message.channel.send(`Purged ${args[0]} messages!`).then(msg => msg.delete(3000));});  
           //message.delete();
           //const m_delnumber = args[0]({limit: 99});
           //message.channel.bulkDelete(m_delnumber);
