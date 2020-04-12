@@ -50,17 +50,17 @@
       m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
     }
 
-if(command === "aiuto") {
+if(command === "help") {
         let Myembed = new Discord.RichEmbed ()
-        .setAuthor("Ryuk's Bot", "https://imgur.com/pUQi3eT.png")
+        .setAuthor("Big Boy's BOT", "https://i.imgur.com/dRbevw3.jpg")
   
-        .setColor("#ff3f00")
-        .addField("-1 !social", "(Mostra i link a tutti i social)")
-        .addField("-2 !dona", "(Mostra il link per donare.)")
-        .addField("-3 !sub", "(Mostra il link per diventare sub.)")
-        .addField("-4 !bits", "(Mostra il link per donare bits.)")
+        .setColor("#03fcf4")
+        .addField("TITLE", "DESCRIPTION")
+        .addField("TITLE", "DESCRIPTION")
+        .addField("TITLE", "DESCRIPTION")
+        .addField("TITLE", "DESCRIPTION")
         .setTimestamp()
-        .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || Versione 1.0.0")
+        .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || Version 1.0.0")
         message.channel.send(Myembed)
 }
   }); //DON'T FUCKING DELETE THIS
