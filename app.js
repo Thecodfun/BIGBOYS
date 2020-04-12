@@ -40,8 +40,16 @@
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
     
-    // Let's go with a few common example commands! Feel free to delete or change those.
-    
+// Create an event listener for new guild members
+client.on('guildMemberAdd', member => {
+  // Send the message to a designated channel on a server:
+  const channel = member.guild.channels.cache.find(ch => ch.name === 'member-log');
+  // Do nothing if the channel wasn't found on this server
+  if (!channel) return;
+  // Send the message, mentioning the member
+  channel.send(`:partying_face: Welcome, ${member} We hope you will enjoy your stay!:partying_face: `);
+});
+
     if(command === "ping") {
       if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('You do not have permission to use this command.')
       // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
@@ -66,15 +74,50 @@
   
       if(command === "kick")
       {
-        if(message.member.hasPermission("KICK_MEMBERS"))
+        if(message.member.hasPermission("KICK_MEMBERS" || "ADMINISTRATOR"))
         {
-        var member= message.mentions.members.first();
+        var member = message.mentions.members.first();
         member.kick("You have been kicked!")
         message.reply("User:" + member + " :white_check_mark: Has been kicked! :white_check_mark:")
         }
         else
         {
           message.reply(":x: You can't kick other users! :x:")
+        }
+      }
+
+      if(command === "ban")
+      {
+        if(message.member.hasPermission("BAN_MEMBERS" || "ADMINISTRATOR"))
+        {
+        var member = message.mentions.members.first();
+        member.ban("You have been banned!")
+        message.reply("User:" + member + " :white_check_mark: Has been banned! :white_check_mark:")
+        }
+        else
+        {
+          message.reply(":x: You can't ban other users! :x:")
+        }
+      }
+
+      if(command === "purgedelete")
+      {
+        if(message.member.hasPermission("MANAGE_MESSAGES" || "ADMINISTRATOR"))
+        {
+          var member = message.mentions.members.first();
+          const amount = !!parseInt(message.content.split(' ')[1]) ? parseInt(message.content.split(' ')[1]) : parseInt(message.content.split(' ')[2])
+          if (!amount) return message.reply('Must specify an amount to delete!');
+          if (!amount && !user) return message.reply('Must specify a user and amount, or just an amount, of messages to purge!');
+          // Fetch 100 messages (will be filtered and lowered up to max amount requested)
+          message.channel.fetchMessages({
+          limit: 100,
+          }).then((messages) => {
+          if (user) {
+          const filterBy = user ? user.id : Client.user.id;
+          messages = messages.filter(m => m.author.id === filterBy).array().slice(0, amount);
+          }
+          message.channel.bulkDelete(messages).catch(error => console.log(error.stack));
+          });
         }
       }
 
