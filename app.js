@@ -64,4 +64,4 @@ if(command === "aiuto") {
         message.channel.send(Myembed)
 }
   }); //DON'T FUCKING DELETE THIS
-client.login(token).catch(err => console.log(err)); 
+client.login(process.env.token).catch(err => console.log(err)); 
