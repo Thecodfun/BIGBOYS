@@ -100,7 +100,7 @@ client.on('guildMemberAdd', member => {
         }
       }
 
-      if(command === "purgedelete")
+      if(command === "pdelete")
       {
         if(message.member.hasPermission("MANAGE_MESSAGES" || "ADMINISTRATOR"))
         {
