@@ -100,11 +100,11 @@ client.on('guildMemberAdd', member => {
         }
       }
 
-      if(command === "purgedelete")
+      if(command === "pdelete")
       {
         if(message.member.hasPermission("MANAGE_MESSAGES" || "ADMINISTRATOR"))
         {
-          var member = message.mentions.members.first();
+          var user = message.mentions.members.first();
           const amount = !!parseInt(message.content.split(' ')[1]) ? parseInt(message.content.split(' ')[1]) : parseInt(message.content.split(' ')[2])
           if (!amount) return message.reply('Must specify an amount to delete!');
           if (!amount && !user) return message.reply('Must specify a user and amount, or just an amount, of messages to purge!');
