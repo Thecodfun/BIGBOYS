@@ -49,6 +49,15 @@ client.on('guildMemberAdd', member => {
   // Send the message, mentioning the member
   channel.send(`:partying_face: Welcome, ${member} We hope you will enjoy your stay!:partying_face: `);
 });
+/////////////////////////////////////////
+function wait(ms)
+{
+var d = new Date();
+var d2 = null;
+do { d2 = new Date(); }
+while(d2-d < ms);
+}
+/////////////////////////////////////////
 
     if(command === "ping") {
       if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('You do not have permission to use this command.')
@@ -109,8 +118,9 @@ client.on('guildMemberAdd', member => {
             message.reply("You **MUST** input a number of messages to delete!")
           }
             message.delete();
-            message.channel.bulkDelete(args[0]).then(() => {
-            message.channel.send(`Purged ${args[0]} messages!`).then(msg => msg.delete(2000));});  
+            wait(1000)
+            message.channel.bulkDelete(parseInt(args[0])).then(() => {
+            message.channel.send(`Purged ${args[0]} messages!`).then(msg => msg.delete(3000));});  
         }
         else
         {
