@@ -119,8 +119,8 @@
             }
               message.delete();
               wait(1000)
-              message.channel.bulkDelete(parseInt(args[0])).then(() => {
-              message.channel.send(`Purged ${args[0] - 1} messages!`).then(msg => msg.delete(3000));});  
+              message.channel.bulkDelete(parseInt(args[0]) + 1).then(() => {
+              message.channel.send(`Purged ${args[0] + 1} messages!`).then(msg => msg.delete(3000));});  
           }
           else
           {
