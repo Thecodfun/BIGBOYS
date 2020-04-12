@@ -52,7 +52,7 @@
 
     if(command === "ban")
 {
-  if(message.author.hasPermission("BAN_MEMBERS" || "ADMINISTRATOR"))
+  if(message.author.hasPermission("BAN_MEMBERS"))
   {
    
   var member = message.mentions.members.first();
