@@ -104,9 +104,9 @@ client.on('guildMemberAdd', member => {
       {
         if(message.member.hasPermission("MANAGE_MESSAGES" || "ADMINISTRATOR"))
         {
-          channel.bulkDelete(5)
-          .then(messages => message.reply(`Bulk deleted ${messages.size} messages`))
-          .catch(console.error);
+          msg.delete();
+          const fetched = await msg.channel.fetchMessages({limit: 99});
+          msg.channel.bulkDelete(fetched);
         }
         else
         {
