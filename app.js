@@ -100,7 +100,7 @@ client.on('guildMemberAdd', member => {
         }
       }
 
-      if(command === "pdelete")
+      if(command === "purgedelete")
       {
         if(message.member.hasPermission("MANAGE_MESSAGES" || "ADMINISTRATOR"))
         {
@@ -118,6 +118,10 @@ client.on('guildMemberAdd', member => {
           }
           message.channel.bulkDelete(messages).catch(error => console.log(error.stack));
           });
+        }
+        else
+        {
+          message.reply(":x: You can't delete other user's messages! :x:")      
         }
       }
 
