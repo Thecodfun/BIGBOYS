@@ -108,7 +108,6 @@ client.on('guildMemberAdd', member => {
           const amount = !!parseInt(message.content.split(' ')[1]) ? parseInt(message.content.split(' ')[1]) : parseInt(message.content.split(' ')[2])
           if (!amount) return message.reply('Must specify an amount to delete!');
           if (!amount && !user) return message.reply('Must specify a user and amount, or just an amount, of messages to purge!');
-          // Fetch 100 messages (will be filtered and lowered up to max amount requested)
           message.channel.fetchMessages({
           limit: 100,
           }).then((messages) => {
