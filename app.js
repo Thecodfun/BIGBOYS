@@ -66,7 +66,7 @@
   
       if(command === "kick")
       {
-        if(message.author.hasPermission("KICK_MEMBERS"))
+        if(message.member.hasPermission("KICK_MEMBERS"))
         {
         var member= message.mentions.members.first();
         member.kick("You have been kicked!")
