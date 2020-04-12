@@ -50,21 +50,6 @@
       m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
       }
 
-    if(command === "ban")
-  {
-    if(message.author.hasPermission("BAN_MEMBERS" || "ADMINISTRATOR"))
-    {
-    
-    var member = message.mentions.members.first();
-    member.ban("You have been banned!")
-    message.reply("User:" + member + " :white_check_mark: Has been banned! :white_check_mark:")   
-    } 
-    else
-    {
-      message.reply(":x: You can't ban other users! :x:")
-    }
-      }
-
     if(command === "help") {
         let Myembed = new Discord.RichEmbed ()
         .setAuthor("Big Boy's BOT", "https://i.imgur.com/dRbevw3.jpg")
@@ -79,19 +64,19 @@
         message.channel.send(Myembed)
       }
   
-    if(command === "ban")
-    {
-      if(message.author.hasPermission("BAN_MEMBERS"))
+      if(command === "kick")
       {
-      var member = message.mentions.members.first();
-      guildMember.ban("You have been banned!")
-      message.reply("User:" + member + " :white_check_mark: Has been banned! :white_check_mark:")
+        if(message.author.hasPermission("KICK_MEMBERS"))
+        {
+        var member= message.mentions.members.first();
+        member.kick("You have been kicked!")
+        message.reply("User:" + member + " :white_check_mark: Has been kicked! :white_check_mark:")
+        }
+        else
+        {
+          message.reply(":x: You can't kick other users! :x:")
+        }
       }
-      else
-      {
-        message.reply(":x: You can't ban other users! :x:")
-      }
-    }
 
     }); //DON'T FUCKING DELETE THIS
     client.login(process.env.token).catch(err => console.log(err)); 
