@@ -9,6 +9,8 @@
     const config = require('./config.json');
     //PREFIX FOR COMANDS
     const PREFIX = "!"  
+    //VERSION CONST
+    const version = "Version 1.0.6"
     
     
     client.on("ready", () => {
@@ -73,7 +75,7 @@
           .addField("!ban **'@user'**", "Permanently Bans the mentioned user.")
           .addField("TITLE", "DESCRIPTION")
           .setTimestamp()
-          .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || Version 1.0.5")
+          .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || " + version)
           message.channel.send(Myembed)
         }
 
@@ -87,7 +89,7 @@
           .addField("!getid", "gets the mentioned user's id.")
           .addField("TITLE", "DESCRIPTION")
           .setTimestamp()
-          .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || Version 1.0.5")
+          .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || " + version)
           message.channel.send(Myembed)
         }
     
@@ -183,9 +185,9 @@
           let Myembed = new Discord.RichEmbed ()
           .setAuthor("Big Boy's BOT", "https://i.imgur.com/dRbevw3.jpg")
           .setColor("#34cdeb")
-          .addField("Info about the BOT!", "This BOT is menat to help administrating the server and making evryone's life easier, Current Versione is 1.0.5, BOT is made in node.js using Discord.js APIs")
+          .addField("Info about the BOT!", "This BOT is menat to help administrating the server and making evryone's life easier, Current Update is "+ version +",BOT is made in node.js using Discord.js APIs")
           .setTimestamp()
-          .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || Version 1.0.5")
+          .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || " + version)
           message.channel.send(Myembed)
         }
 
