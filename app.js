@@ -18,7 +18,7 @@
       // docs refer to as the "ClientUser".
     client.user.setActivity("Managing Big Boy's Servers", {
       type: "STREAMING",
-      url: " "
+      url: "https://www.twitch.tv/thecodfun"
     });
     });
     
@@ -128,6 +128,7 @@
             message.reply(":x: You can't delete messages! :x:")      
           }
         }
+
 
       }); //DON'T FUCKING DELETE THIS
       client.login(process.env.token).catch(err => console.log(err)); 
