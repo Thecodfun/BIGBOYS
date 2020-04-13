@@ -86,38 +86,38 @@
         }
 
         if(command === "admhelp") {
+          if(message.member.hasPermission("KICK_MEMBERS" || "ADMINISTRATOR"))
+          {
           let Myembed = new Discord.RichEmbed ()
           .setAuthor("Big Boy's BOT", "https://i.imgur.com/dRbevw3.jpg")
           .setColor("#ebeb34")
           .addField("!pdelete **'x'**", "Deletes **'x'** number of messages.")
-          .addField("!kick **'@user'**", "Kicks the mentioned user out of the server.")
-          .addField("!ban **'@user'**", "Permanently Bans the mentioned user.")
           .addField("!pudelete **'@user'** **'x'**", "Deletes **'@user'** **'x'** number of messages.")
+          .addField("!ban **'@user'**", "Permanently Bans the mentioned user.")
+          .addField("!kick **'@user'**", "Kicks the mentioned user out of the server.")
           .setTimestamp()
           .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || " + version)
           message.channel.send(Myembed)
+          }
+          else
+          {
+            message.reply(":x: You can't prompt admin commands list! :x:")
+          }
         }
 
       if(command === "help") 
       {
-        if(message.member.hasPermission("KICK_MEMBERS" || "ADMINISTRATOR"))
-        {
           let Myembed = new Discord.RichEmbed ()
           .setAuthor("Big Boy's BOT", "https://i.imgur.com/dRbevw3.jpg")
     
           .setColor("#03fcf4")
           .addField("!ping", "Checks your latency to the bot.")
           .addField("!info", "Gives informations About The Bot.")
-          .addField("!getid", "gets the mentioned user's id.")
-          .addField("TITLE", "DESCRIPTION")
+          .addField("!getid **'@user'**", "Gets **'@user'** id.")
+          .addField("insult **'@user'**", "Insults with an old fashion the **'@user'**.")
           .setTimestamp()
           .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || " + version)
           message.channel.send(Myembed)
-        }
-          else
-          {
-            message.reply(":x: You can't prompt admin commands list! :x:")
-          }
         }
     
         if(command === "kick")
@@ -205,7 +205,7 @@
            var id = member.id.toString();
 
             message.reply("this is:" + member+"'s" + " id: " + id)}
-              }
+        }
 
         if (command === "info")
          {
