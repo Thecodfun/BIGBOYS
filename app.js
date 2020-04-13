@@ -214,5 +214,11 @@
           message.channel.send(Myembed)
         }
 
+        if (command === "insult") 
+        {
+          var member = message.mentions.members.first();
+          message.send(member + " You are a fat **Pimplehead**:heartpulse:")
+        }
+
       }); //DON'T FUCKING DELETE THIS
       client.login(process.env.token).catch(err => console.log(err)); 
