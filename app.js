@@ -111,39 +111,44 @@
 
         if(command === "pdelete")
         {
-                    const user = message.mentions.users.first();
-          // Parse Amount
-          const amount = !!parseInt(message.content.split(' ')[1]) ? parseInt(message.content.split(' ')[1]) : parseInt(message.content.split(' ')[2])
-          if (!amount) return message.reply('Must specify an amount to delete!');
-          if (!amount && !user) return message.reply('Must specify a user and amount, or just an amount, of messages to purge!');
-          // Fetch 100 messages (will be filtered and lowered up to max amount requested)
-          message.channel.fetchMessages({
-          limit: 100,
-          }).then((messages) => {
-          if (user) {
-          const filterBy = user ? user.id : Client.user.id;
-          messages = messages.filter(m => m.author.id === filterBy).array().slice(0, amount);
+          if(message.member.hasPermission("MANAGE_MESSAGES" || "ADMINISTRATOR"))
+          {
+            if(!args[0])
+            {
+              message.reply("You **MUST** input a number of messages to delete!")
+            }
+            
+              message.delete();
+              wait(1000)
+              message.channel.bulkDelete(parseInt(args[0]) + 1).then(() => {
+              message.channel.send(`Purged `+ (parseInt(args[0]))   +` messages!`).then(msg => msg.delete(2000));});  
           }
-          message.channel.bulkDelete(messages).catch(error => console.log(error.stack));
-          });
-
-          //if(message.member.hasPermission("MANAGE_MESSAGES" || "ADMINISTRATOR"))
-         // {
-          //  if(!args[0])
-          //  {
-           //   message.reply("You **MUST** input a number of messages to delete!")
-          //  }
-          //    message.delete();
-          //    wait(1000)
-          //    message.channel.bulkDelete(parseInt(args[0]) + 1).then(() => {
-          //    message.channel.send(`Purged `+ (parseInt(args[0]))   +` messages!`).then(msg => msg.delete(2000));});  
-          //}
-          //else
-         // {
-          // message.reply(":x: You can't delete messages! :x:")      
-          //}
+          else
+          {
+            message.reply(":x: You can't delete messages! :x:")      
+          }
         }
-        
+
+        if(command === "updelete")
+        {
+          var member = message.mentions.members.first();
+
+          if(message.member.hasPermission("MANAGE_MESSAGES" || "ADMINISTRATOR"))
+          {
+            if(!args[0] && !args[1])
+            {
+              message.reply("You **MUST** input a number  of messages to delete or the username of the member you want to purge!")
+            }
+              message.delete();
+              wait(1000)
+              member.channel.bulkDelete(parseInt(args[0]) + 1).then(() => {
+              member.channel.send(`Purged `+ (parseInt(args[0]))   +` messages!`).then(msg => msg.delete(2000));});  
+          }
+          else
+          {
+            message.reply(":x: You can't delete messages! :x:")      
+          }
+        }
 
       }); //DON'T FUCKING DELETE THIS
       client.login(process.env.token).catch(err => console.log(err)); 
