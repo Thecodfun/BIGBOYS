@@ -17,8 +17,7 @@
       // Example of changing the bot's playing game to something useful. `client.user` is what the
       // docs refer to as the "ClientUser".
     client.user.setActivity("Managing Big Boy's Servers", {
-      type: "STREAMING",
-      url: "https://www.twitch.tv/thecodfun"
+      type: "ONLINE",
     });
     });
     
@@ -121,7 +120,7 @@
               
               if (args[0] > 100) 
               {
-                message.reply("You cannot delete more than 100 messages!")
+                message.reply("You **CANNOT** delete more than 100 messages!")
               }
               wait(1000)
               message.channel.bulkDelete(parseInt(args[0]) + 1).then(() => {
