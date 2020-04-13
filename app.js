@@ -17,7 +17,7 @@
       antispam(client, {
         limitUntilWarn: 3, // The amount of messages allowed to send within the interval(time) before getting a warn.
         limitUntilMuted: 5, // The amount of messages allowed to send within the interval(time) before getting a muted.
-        interval: 500, // The interval(time) where the messages are sent. Practically if member X sent 5+ messages within 2 seconds, he get muted. (1000 milliseconds = 1 second, 2000 milliseconds = 2 seconds etc etc)
+        interval: 2000, // The interval(time) where the messages are sent. Practically if member X sent 5+ messages within 2 seconds, he get muted. (1000 milliseconds = 1 second, 2000 milliseconds = 2 seconds etc etc)
         warningMessage: "if you don't stop from spamming, I'm going to punish you!", // Message you get when you are warned!
         muteMessage: "was muted since we don't like too much advertisement type people!", // Message sent after member X was punished(muted).
         maxDuplicatesWarning: 7,// When people are spamming the same message, this will trigger when member X sent over 7+ messages.
@@ -41,7 +41,7 @@
       // It's good practice to ignore other bots. This also makes your bot ignore itself
       // and not get into a spam loop (we call that "botception").
       if(message.author.bot) return;
-      client.emit('checkMessage', msg); // This runs the filter on any message bot receives in any guilds.
+      client.emit('checkMessage', message); // This runs the filter on any message bot receives in any guilds.
       // Also good practice to ignore any message that does not start with our prefix, 
       // which is set in the configuration file.
       if(message.content.indexOf(config.prefix) !== 0) return;
