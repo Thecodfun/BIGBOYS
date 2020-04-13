@@ -217,7 +217,7 @@
         if (command === "insult") 
         {
           var member = message.mentions.members.first();
-          message.send(member + " You are a fat **Pimplehead**:heartpulse:")
+          message.channel.send(member + " You are a fat **Pimplehead**:heartpulse:")
         }
 
       }); //DON'T FUCKING DELETE THIS
