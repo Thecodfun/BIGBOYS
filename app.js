@@ -64,6 +64,19 @@
         m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
         }
 
+        if(command === "admhelp") {
+          let Myembed = new Discord.RichEmbed ()
+          .setAuthor("Big Boy's BOT", "https://i.imgur.com/dRbevw3.jpg")
+          .setColor("#ebeb34")
+          .addField("!pdelete **'x'**", "Deletes **'x'** number of messages.")
+          .addField("!kick **'@user'**", "Kicks the mentioned user out of the server.")
+          .addField("!ban **'@user'**", "Permanently Bans the mentioned user.")
+          .addField("TITLE", "DESCRIPTION")
+          .setTimestamp()
+          .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || Version 1.0.6")
+          message.channel.send(Myembed)
+        }
+
       if(command === "help") {
           let Myembed = new Discord.RichEmbed ()
           .setAuthor("Big Boy's BOT", "https://i.imgur.com/dRbevw3.jpg")
@@ -74,7 +87,7 @@
           .addField("!getid", "gets the mentioned user's id.")
           .addField("TITLE", "DESCRIPTION")
           .setTimestamp()
-          .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || Version 1.0.5")
+          .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || Version 1.0.6")
           message.channel.send(Myembed)
         }
     
@@ -130,6 +143,28 @@
           }
         }
 
+        if (command === "pudelete") 
+        {
+          if(message.member.hasPermission("MANAGE_MESSAGES" || "ADMINISTRATOR"))
+          {
+            var member = message.mentions.members.first()
+            var amount = parseInt(message.content.split(' ')[2])
+            if (!member && !amount) return message.reply('Must specify a user to purge and a number of messages to purge!');
+            if (!member) return message.reply('Must specify a user to purge!');
+            if (!amount) return message.reply('Must specify an amount of messages to delete!');
+            if (amount > 100) return message.reply('You **CANNOT** delete more than 100 messages!');
+            message.channel.fetchMessages({
+              limit: 100,
+             }).then((messages) => {
+              if (member) {
+              const filterBy = member ? member.id : Client.member.id;
+              messages = messages.filter(m => m.author.id === filterBy).array().slice(0, amount);
+              }
+              message.channel.bulkDelete(messages).catch(error => console.log(error.stack));
+             });
+          } 
+        }
+
         if(command === "getid")
         {
          { 
@@ -143,10 +178,10 @@
          {
           let Myembed = new Discord.RichEmbed ()
           .setAuthor("Big Boy's BOT", "https://i.imgur.com/dRbevw3.jpg")
-          .setColor("#03fcf4")
+          .setColor("#34cdeb")
           .addField("Info about the BOT!", "This BOT is menat to help administrating the server and making evryone's life easier, Current Versione is 1.0.5, BOT is made in node.js using Discord.js APIs")
           .setTimestamp()
-          .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || Version 1.0.5")
+          .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || Version 1.0.6")
           message.channel.send(Myembed)
         }
 
