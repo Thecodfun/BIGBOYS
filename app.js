@@ -117,8 +117,12 @@
             {
               message.reply("You **MUST** input a number of messages to delete!")
             }
-            
               message.delete();
+              
+              if (args[0] > 100) 
+              {
+                message.reply("You cannot delete more than 100 messages!")
+              }
               wait(1000)
               message.channel.bulkDelete(parseInt(args[0]) + 1).then(() => {
               message.channel.send(`Purged `+ (parseInt(args[0]))   +` messages!`).then(msg => msg.delete(2000));});  
@@ -129,6 +133,7 @@
           }
         }
 
+        
 
       }); //DON'T FUCKING DELETE THIS
       client.login(process.env.token).catch(err => console.log(err)); 
