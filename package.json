@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
+    "better-discord-antispam": "^1.0.6",
     "discord.js": "^11.4.2",
     "tmi.js": "^1.4.2"
   },
