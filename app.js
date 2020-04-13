@@ -154,10 +154,11 @@
             if (!member && !amount && !args[0]) return message.reply('Must specify a user to purge and a number of messages to purge!');
             if (!member) return message.reply('Must specify a user to purge!');
             if (!amount) return message.reply('Must specify an amount of messages to delete!');
+            if (args[1] > 100) return message.reply('You **CANNOT** delete more than 100 messages!');
             message.channel.fetchMessages({
              }).then((messages) => {
               if (member) {
-                if (amount > 100) return message.reply('You **CANNOT** delete more than 100 messages!');
+               
               const filterBy = member ? member.id : Client.member.id;
               messages = messages.filter(m => m.author.id === filterBy).array().slice(0, amount);
               }
