@@ -73,7 +73,7 @@
           .addField("!ban **'@user'**", "Permanently Bans the mentioned user.")
           .addField("TITLE", "DESCRIPTION")
           .setTimestamp()
-          .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || Version 1.0.6")
+          .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || Version 1.0.5")
           message.channel.send(Myembed)
         }
 
@@ -87,7 +87,7 @@
           .addField("!getid", "gets the mentioned user's id.")
           .addField("TITLE", "DESCRIPTION")
           .setTimestamp()
-          .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || Version 1.0.6")
+          .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || Version 1.0.5")
           message.channel.send(Myembed)
         }
     
@@ -160,7 +160,7 @@
               const filterBy = member ? member.id : Client.member.id;
               messages = messages.filter(m => m.author.id === filterBy).array().slice(0, amount);
               }
-              message.channel.bulkDelete(messages).catch(error => console.log(error.stack));
+              message.channel.bulkDelete(messages).then(msg => msg.delete(2000)).catch(error => console.log(error.stack));
              });
           } 
         }
@@ -181,7 +181,7 @@
           .setColor("#34cdeb")
           .addField("Info about the BOT!", "This BOT is menat to help administrating the server and making evryone's life easier, Current Versione is 1.0.5, BOT is made in node.js using Discord.js APIs")
           .setTimestamp()
-          .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || Version 1.0.6")
+          .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || Version 1.0.5")
           message.channel.send(Myembed)
         }
 
