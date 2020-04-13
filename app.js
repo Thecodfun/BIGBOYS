@@ -232,7 +232,7 @@
         if (command === 'say')
         {
          //message.content.slice(command.length)
-          var messeageToSend = message.content.slice(config.prefix.length);
+          var messeageToSend = message.content.slice(config.prefix.length && command.length);
             message.channel.send(messeageToSend);
         }
       }); //DON'T FUCKING DELETE THIS
