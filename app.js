@@ -114,7 +114,8 @@
           .addField("!ping", "Checks your latency to the bot.")
           .addField("!info", "Gives informations About The Bot.")
           .addField("!getid **'@user'**", "Gets **'@user'** id.")
-          .addField("insult **'@user'**", "Insults with an old fashion the **'@user'**.")
+          .addField("!insult **'@user'**", "Insults with an old fashion the **'@user'**.")
+          .addField("!say **'message'**", "Allows the bot say the **'message'** you typed.")
           .setTimestamp()
           .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || " + version)
           message.channel.send(Myembed)
@@ -191,6 +192,7 @@
               }
               message.channel.bulkDelete(messages).catch(error => console.log(error.stack));
              });
+             
           } 
           else 
           {
@@ -231,7 +233,6 @@
 
         if (command === 'say')
         {
-         //message.content.slice(command.length)
           var messeageToSend = message.content.slice(config.prefix.length && command.length + 1);
             message.channel.send(messeageToSend);
         }
