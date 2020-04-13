@@ -72,9 +72,8 @@
   while(d2-d < ms);
   }
 
-  function clap(num, min, max)
-  {
-     return (num > max) ? max : (num < min) ? min : num    
+  function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
   }
   /////////////////////////////////////////
 
@@ -227,7 +226,7 @@
             " You are so fat that when you wear a yellow raincoat people shout out 'taxi'", " You're so stupid that you thought a quarterback was a refund.", " You are so hairy that when you went hiking, another sighting of Bigfoot was reported.", " You are so hairy that when you take your dog for a walk, you get pet first.",
             " Those teeth look like you could eat an apple through a tennis racquet.", " No I'm not insulting you, I'm describing you.", " You're so fake, Barbie is jealous.", " I'd slap you, but that would be animal abuse.", "LOL RETARD."]
           var member = message.mentions.members.first();
-          message.channel.send(member + a_insults[clap(randnum, 1, 15)])
+          message.channel.send(member + a_insults[getRandomArbitrary(1, 15)])
         }
 
       }); //DON'T FUCKING DELETE THIS
