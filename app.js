@@ -158,9 +158,9 @@
             }
               message.delete();
               
-              if (args[0] > 101) 
+              if (args[0] > 99) 
               {
-                message.reply("You **CANNOT** delete more than 100 messages!")
+                message.reply("You **CANNOT** delete more than 99 messages!")
               }
               wait(1000)
               message.channel.bulkDelete(parseInt(args[0]) + 1).then(() => {
@@ -181,7 +181,7 @@
             if (!member && !amount && !args[0]) return message.reply('Must specify a user to purge and a number of messages to purge!');
             if (!member) return message.reply('Must specify a user to purge!');
             if (!amount) return message.reply('Must specify an amount of messages to delete!');
-            if (args[1] > 101) return message.reply('You **CANNOT** delete more than 100 messages!');
+            if (args[1] > 99) return message.reply('You **CANNOT** delete more than 99 messages!');
             message.channel.fetchMessages({
              }).then((messages) => {
               if (member) {
