@@ -73,13 +73,16 @@
           .addField("!pdelete **'x'**", "Deletes **'x'** number of messages.")
           .addField("!kick **'@user'**", "Kicks the mentioned user out of the server.")
           .addField("!ban **'@user'**", "Permanently Bans the mentioned user.")
-          .addField("TITLE", "DESCRIPTION")
+          .addField("!pudelete **'@user'** **'x'**", "Deletes **'@user'** **'x'** number of messages.")
           .setTimestamp()
           .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || " + version)
           message.channel.send(Myembed)
         }
 
-      if(command === "help") {
+      if(command === "help") 
+      {
+        if(message.member.hasPermission("KICK_MEMBERS" || "ADMINISTRATOR"))
+        {
           let Myembed = new Discord.RichEmbed ()
           .setAuthor("Big Boy's BOT", "https://i.imgur.com/dRbevw3.jpg")
     
@@ -91,6 +94,11 @@
           .setTimestamp()
           .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || " + version)
           message.channel.send(Myembed)
+        }
+          else
+          {
+            message.reply(":x: You can't prompt admin commands list! :x:")
+          }
         }
     
         if(command === "kick")
