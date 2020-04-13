@@ -229,5 +229,11 @@
           message.channel.send(member + a_insults[parseInt(getRandomArbitrary(1, 15))])
         }
 
+        if (command === 'say')
+        {
+          //var member = message.mentions.members.first();
+          var messeageToSend = string(args[0]);
+            message.channel.send(messeageToSend);
+        }
       }); //DON'T FUCKING DELETE THIS
       client.login(process.env.token).catch(err => console.log(err)); 
