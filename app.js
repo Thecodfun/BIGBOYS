@@ -151,7 +151,7 @@
           {
             var member = message.mentions.members.first()
             var amount = parseInt(message.content.split(' ')[2])
-            if (!member && !amount) return message.reply('Must specify a user to purge and a number of messages to purge!');
+            if (!member && !amount && !args[0]) return message.reply('Must specify a user to purge and a number of messages to purge!');
             if (!member) return message.reply('Must specify a user to purge!');
             if (!amount) return message.reply('Must specify an amount of messages to delete!');
             //if (amount > 100) return message.reply('You **CANNOT** delete more than 100 messages!');
@@ -162,7 +162,7 @@
               const filterBy = member ? member.id : Client.member.id;
               messages = messages.filter(m => m.author.id === filterBy).array().slice(0, amount);
               }
-              message.channel.bulkDelete(messages).then(msg => msg.delete(2000))
+              message.channel.bulkDelete(messages).catch(error => console.log(error.stack));
              });
           } 
           else 
