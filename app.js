@@ -149,9 +149,6 @@
           .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || Version 1.0.5")
           message.channel.send(Myembed)
         }
-        }
-
-        
 
       }); //DON'T FUCKING DELETE THIS
       client.login(process.env.token).catch(err => console.log(err)); 
