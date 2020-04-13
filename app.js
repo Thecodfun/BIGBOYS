@@ -129,26 +129,5 @@
           }
         }
 
-        if(command === "updelete")
-        {
-          var member = message.mentions.members.first();
-
-          if(message.member.hasPermission("MANAGE_MESSAGES" || "ADMINISTRATOR"))
-          {
-            if(!args[0] && !args[1])
-            {
-              message.reply("You **MUST** input a number  of messages to delete or the username of the member you want to purge!")
-            }
-              message.delete();
-              wait(1000)
-              member.channel.bulkDelete(parseInt(args[0]) + 1).then(() => {
-              member.channel.send(`Purged `+ (parseInt(args[0]))   +` messages!`).then(msg => msg.delete(2000));});  
-          }
-          else
-          {
-            message.reply(":x: You can't delete messages! :x:")      
-          }
-        }
-
       }); //DON'T FUCKING DELETE THIS
       client.login(process.env.token).catch(err => console.log(err)); 
