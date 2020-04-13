@@ -154,7 +154,7 @@
             if (!member && !amount) return message.reply('Must specify a user to purge and a number of messages to purge!');
             if (!member) return message.reply('Must specify a user to purge!');
             if (!amount) return message.reply('Must specify an amount of messages to delete!');
-            if (amount > 100) return message.reply('You **CANNOT** delete more than 100 messages!');
+            //if (amount > 100) return message.reply('You **CANNOT** delete more than 100 messages!');
             message.channel.fetchMessages({
               limit: 100,
              }).then((messages) => {
