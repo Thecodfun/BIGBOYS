@@ -163,6 +163,10 @@
               message.channel.bulkDelete(messages).then(msg => msg.delete(2000)).catch(error => console.log(error.stack));
              });
           } 
+          else 
+          {
+            message.reply(":x: You can't delete other user's messages! :x:")            
+          }
         }
 
         if(command === "getid")
