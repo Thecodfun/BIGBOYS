@@ -231,9 +231,8 @@
 
         if (command === 'say')
         {
-          message.content.slice(config.prefix.length)
-          message.content.slice(command.length)
-          var messeageToSend = message.content;
+         //message.content.slice(command.length)
+          var messeageToSend = message.content.slice(config.prefix.length);
             message.channel.send(messeageToSend);
         }
       }); //DON'T FUCKING DELETE THIS
