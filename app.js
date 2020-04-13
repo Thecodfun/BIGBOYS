@@ -69,12 +69,12 @@
           .setAuthor("Big Boy's BOT", "https://i.imgur.com/dRbevw3.jpg")
     
           .setColor("#03fcf4")
-          .addField("TITLE", "DESCRIPTION")
-          .addField("TITLE", "DESCRIPTION")
-          .addField("TITLE", "DESCRIPTION")
+          .addField("!ping", "Checks your latency to the bot.")
+          .addField("!info", "Gives informations About The Bot.")
+          .addField("!getid", "gets the mentioned user's id.")
           .addField("TITLE", "DESCRIPTION")
           .setTimestamp()
-          .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || Version 1.0.0")
+          .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || Version 1.0.5")
           message.channel.send(Myembed)
         }
     
@@ -128,6 +128,27 @@
           {
             message.reply(":x: You can't delete messages! :x:")      
           }
+        }
+
+        if(command === "getid")
+        {
+         { 
+           var member= message.mentions.members.first();
+           var id = member.id.toString();
+
+            message.reply("this is:" + member+"'s" + " id: " + id)}
+              }
+
+        if (command === "info")
+         {
+          let Myembed = new Discord.RichEmbed ()
+          .setAuthor("Big Boy's BOT", "https://i.imgur.com/dRbevw3.jpg")
+          .setColor("#03fcf4")
+          .addField("Info about the BOT!", "This BOT is menat to help administrating the server and making evryone's life easier, Current Versione is 1.0.5, BOT is made in node.js using Discord.js APIs")
+          .setTimestamp()
+          .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || Version 1.0.5")
+          message.channel.send(Myembed)
+        }
         }
 
         
