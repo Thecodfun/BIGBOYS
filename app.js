@@ -38,7 +38,7 @@
     
     // Create an event listener for new guild members
      client.on("guildMemberAdd", (member) => {
-      client.channels.get('698863825121837079').send(`:partying_face: New User @${member.user.username} has joined our family, we hope you will enjoy your stay! :partying_face:`);
+      client.channels.get('698863825121837079').send(`:partying_face: New User ${member.user.tag} has joined our family, we hope you will enjoy your stay! :partying_face:`);
     });
 
     client.on("message", async message => {
