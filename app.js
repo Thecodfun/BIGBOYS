@@ -38,9 +38,7 @@
     
     // Create an event listener for new guild members
      client.on("guildMemberAdd", (member) => {
-      console.log(`New User "${member.user.username}" has joined "${member.guild.name}"` );
-      if(!channel) return;
-      if(!member) return; 
+      console.log(`New User ${member.user.username} has joined ${member.guild.name}`);
     });
 
     client.on("message", async message => {
