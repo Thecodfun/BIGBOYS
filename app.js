@@ -243,7 +243,7 @@
           {
             message.reply(":x: You **MUST** specify a user to insult! :x:");
           }
-          else if(String(member) === botname)
+          else if( member.user.tag === botname)
           {
             message.channel.send(member + "**I AIN'T JUST A STUPID CODED MACHINE... MAYBE**")
           }
