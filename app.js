@@ -245,7 +245,7 @@
           }
           else if( member.user.tag === botname)
           {
-            message.channel.send(member + "**I AIN'T JUST A STUPID CODED MACHINE... MAYBE**")
+            message.channel.send(member + " **I AIN'T JUST A STUPID CODED MACHINE... MAYBE**")
           }
           else 
           {
