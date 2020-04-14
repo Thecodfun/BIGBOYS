@@ -196,7 +196,7 @@
                 }
                 message.channel.bulkDelete(messages).then( () => 
                 {
-                  message.channel.send(`Purged `+ (parseInt(args[0])) +`of ${member}'s messages!`).then(msg => msg.delete(2000));
+                  message.channel.send(`Purged ${amount} of ${member}'s messages!`).then(msg => msg.delete(2000));
                 }).catch(error => console.log(error.stack));
               });
               
