@@ -242,7 +242,7 @@
           {
             message.reply(":x: You **MUST** specify a user to insult! :x:");
           }
-          message.channel.send(member + a_insults[parseInt(getRandomArbitrary(1, 15))])
+          message.channel.send(member + a_insults[getRandomArbitrary(1, 15)])
         }
 
         if (command === 'say')
