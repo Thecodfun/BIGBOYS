@@ -36,6 +36,13 @@
       client.user.setActivity(`Big Boy's Server!`, { type: 'WATCHING' })
     });
     
+    // Create an event listener for new guild members
+     client.on("guildMemberAdd", (member) => {
+      console.log(`New User "${member.user.username}" has joined "${member.guild.name}"` );
+      if(!channel) return;
+      if(!member) return; 
+    });
+
     client.on("message", async message => {
       // This event will run on every single message received, from any channel or DM.
 
@@ -53,13 +60,6 @@
       // args = ["Is", "this", "the", "real", "life?"]
       const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
       const command = args.shift().toLowerCase();
-      
-  // Create an event listener for new guild members
-  client.on("guildMemberAdd", (member) => {
-    console.log(`New User "${member.user.username}" has joined "${member.guild.name}"` );
-    if(!channel) return;
-    if(!member) return;
-  });
 
   
   /////////////////////////////////////////
