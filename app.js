@@ -232,17 +232,17 @@
 
         if (command === "insult") 
         {
-          var randnum = Math.random()
-          var a_insults = [' You are a fat Pimplehead.', ' Your underwear smells of dead fish.', ' You like Super Mario,a ugly italian plumber.', ' You are the proof that go has sense of humor.', " You must be born in a freeway, cus that's where most of the accidents happen.",
-           " If i'd have a face like yours, i'd sue my parents", " if i'd want to kill myself i would have to climb ut to your ego and jump down to your IQ.", " You are so fat that you don't need the internet, you are already worldwide.", " You're so fat that your favourite necklace is the food chain.",
-            " You are so fat that when you wear a yellow raincoat people shout out 'taxi'", " You're so stupid that you thought a quarterback was a refund.", " You are so hairy that when you went hiking, another sighting of Bigfoot was reported.", " You are so hairy that when you take your dog for a walk, you get pet first.",
-            " Those teeth look like you could eat an apple through a tennis racquet.", " No I'm not insulting you, I'm describing you.", " You're so fake, Barbie is jealous.", " I'd slap you, but that would be animal abuse.", "LOL RETARD."]
           var member = message.mentions.members.first
           if (!member) 
           {
             message.reply(":x: You **MUST** specify a user to insult! :x:");
           }
-          message.channel.send(member + a_insults[getRandomArbitrary(1, 15)])
+          var randnum = Math.random()
+          var a_insults = [' You are a fat Pimplehead.', ' Your underwear smells of dead fish.', ' You like Super Mario,a ugly italian plumber.', ' You are the proof that go has sense of humor.', " You must be born in a freeway, cus that's where most of the accidents happen.",
+           " If i'd have a face like yours, i'd sue my parents", " if i'd want to kill myself i would have to climb ut to your ego and jump down to your IQ.", " You are so fat that you don't need the internet, you are already worldwide.", " You're so fat that your favourite necklace is the food chain.",
+            " You are so fat that when you wear a yellow raincoat people shout out 'taxi'", " You're so stupid that you thought a quarterback was a refund.", " You are so hairy that when you went hiking, another sighting of Bigfoot was reported.", " You are so hairy that when you take your dog for a walk, you get pet first.",
+            " Those teeth look like you could eat an apple through a tennis racquet.", " No I'm not insulting you, I'm describing you.", " You're so fake, Barbie is jealous.", " I'd slap you, but that would be animal abuse.", "LOL RETARD."]
+          message.channel.send(member + a_insults[parseInt(getRandomArbitrary(1, 15))])
         }
 
         if (command === 'say')
