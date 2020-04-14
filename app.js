@@ -194,7 +194,7 @@
                 const filterBy = member ? member.id : Client.member.id;
                 messages = messages.filter(m => m.author.id === filterBy).array().slice(0, amount);
                 }
-                message.channel.bulkDelete(messages + 1).catch(error => console.log(error.stack));
+                message.channel.bulkDelete(messages).catch(error => console.log(error.stack));
               });
               
             } 
