@@ -75,7 +75,7 @@
     /////////////////////////////////////////
 
         if(command === "ping") {
-          if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('You do not have permission to use this command.')
+          if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send((":x: You can't ping the bot! :x:")).then(msg => msg.delete(2000))
           // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
           // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
           const m = await message.channel.send("Ping?");
@@ -92,13 +92,14 @@
             .addField("!pudelete **'@user'** **'x'**", "Deletes **'@user'** **'x'** number of messages.")
             .addField("!ban **'@user'**", "Permanently Bans the mentioned user.")
             .addField("!kick **'@user'**", "Kicks the mentioned user out of the server.")
+            .addField("!ping", "Checks your latency to the bot.")
             .setTimestamp()
             .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || " + version)
             message.channel.send(Myembed)
             }
             else
             {
-              message.reply(":x: You can't prompt admin commands list! :x:")
+              message.reply(":x: You can't prompt admin commands list! :x:").then(msg => msg.delete(2000))
             }
           }
 
@@ -108,7 +109,6 @@
             .setAuthor("Big Boy's BOT", "https://i.imgur.com/dRbevw3.jpg")
       
             .setColor("#03fcf4")
-            .addField("!ping", "Checks your latency to the bot.")
             .addField("!info", "Gives informations About The Bot.")
             .addField("!getid **'@user'**", "Gets **'@user'** id.")
             .addField("!insult **'@user'**", "Insults with an old fashion the **'@user'**.")
@@ -128,11 +128,11 @@
               message.reply(":x: You **MUST** specify a user to kick! :x:");
             }
             member.kick("You have been kicked!")
-            message.reply("User:" + member + " :white_check_mark: Has been kicked! :white_check_mark:")
+            message.reply("User:" + member + " :white_check_mark: Has been kicked! :white_check_mark:").then(msg => msg.delete(2000))
             }
             else
             {
-              message.reply(":x: You can't kick other users! :x:")
+              message.reply(":x: You can't kick other users! :x:").then(msg => msg.delete(2000))
             }
           }
 
@@ -146,11 +146,11 @@
               message.reply(":x: You **MUST** specify a user to ban! :x:");
             }
             member.ban("You have been banned!")
-            message.reply("User:" + member + " :white_check_mark: Has been banned! :white_check_mark:")
+            message.reply("User:" + member + " :white_check_mark: Has been banned! :white_check_mark:").then(msg => msg.delete(2000))
             }
             else
             {
-              message.reply(":x: You can't ban other users! :x:")
+              message.reply(":x: You can't ban other users! :x:").then(msg => msg.delete(2000))
             }
           }
 
@@ -174,7 +174,7 @@
             }
             else
             {
-              message.reply(":x: You can't delete messages! :x:")      
+              message.reply(":x: You can't delete messages! :x:").then(msg => msg.delete(2000))      
             }
           }
 
@@ -203,7 +203,7 @@
             } 
             else 
             {
-              message.reply(":x: You can't delete other user's messages! :x:")            
+              message.reply(":x: You can't delete other user's messages! :x:").then(msg => msg.delete(2000))            
             }
           }
 
@@ -214,7 +214,7 @@
             var id = member.id.toString();
             if (!member) 
             {
-              message.reply(":x: You **MUST** specify a user to grab his ID! :x:");
+              message.reply(":x: You **MUST** specify a user to grab his ID! :x:").then(msg => msg.delete(2000));
             }
               message.reply("this is:" + member+"'s" + " id: " + id)}
           }
@@ -244,7 +244,7 @@
             }
             else if( member.user.tag === botname)
             {
-              message.channel.send(member + " **I AIN'T JUST A STUPID CODED MACHINE... MAYBE**")
+              message.channel.send(member + " **I AIN'T JUST A STUPID CODED MACHINE... MAYBE**").then(msg => msg.delete(2000))
             }
             else 
             {
@@ -257,7 +257,7 @@
             var messeageToSend = message.content.slice(config.prefix.length && command.length + 1);
             if (!messeageToSend) 
             {
-              message.reply(":x: You **MUST** specify a message or input valid strings! :x:");
+              message.reply(":x: You **MUST** specify a message or input valid strings! :x:").then(msg => msg.delete(2000))
             }
               message.channel.send(messeageToSend);
           }
