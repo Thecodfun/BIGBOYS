@@ -31,11 +31,17 @@
 
         client.user.setActivity(`Big Boy's Server!`, { type: 'WATCHING' })
       });
-      
+
+      /////////////////////////////////////////
+      const role = message.guild.roles.find(role => role.name === "MyRole")
+
       client.on("guildMemberAdd", (member) => {
         client.channels.get('698863825121837079').send(`:partying_face: New User ${member} has joined our family, we hope you will enjoy your stay! :partying_face:`);
+        message.member.addRole(role);
       });
 
+
+      /////////////////////////////////////////
       client.on("message", async message => {
 
         if(message.author.bot) return;
