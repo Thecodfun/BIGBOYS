@@ -10,7 +10,7 @@
     //PREFIX FOR COMANDS
     const PREFIX = "!"  
     //VERSION CONST
-    const version = "Version 1.0.7"
+    const version = "Version 1.0.6"
     const botname = "Big Boy's Management BOT#9683"
     
     
@@ -26,7 +26,7 @@
         ignoredRoles: ["Admin"], // The members with this role(or roles) will be ignored if they have it. Suggest to not add this to any random guys. Also it's case sensitive.
         ignoredMembers: ["🤠₿ig ₿oy🤠#0549", "C Sharp#4754"], // These members are directly affected and they do not require to have the role above. Good for undercover pranks.
         mutedRole: "Muted", // Here you put the name of the role that should not let people write/speak or anything else in your server. If there is no role set, by default, the module will attempt to create the role for you & set it correctly for every channel in your server. It will be named "muted".
-        timeMuted: 600000, // This is how much time member X will be muted. if not set, default would be 10 min.
+        timeMuted: 1000 * 600, // This is how much time member X will be muted. if not set, default would be 10 min.
         logChannel: "bot-spam-logs" // This is the channel where every report about spamming goes to. If it's not set up, it will attempt to create the channel.
       });
       // This event will run if the bot starts, and logs in, successfully.
@@ -57,7 +57,7 @@
   // Create an event listener for new guild members
   client.on('guildMemberAdd', member => {
     // Send the message to a designated channel on a server:
-    const channel = member.guild.channels.cache.find(ch => ch.name === 'member-log');
+    const channel = member.guild.channels.cache.find(ch => ch.name === 'welcome');
     // Do nothing if the channel wasn't found on this server
     if (!channel) return;
     // Send the message, mentioning the member
