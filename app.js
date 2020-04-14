@@ -29,11 +29,11 @@
         // This event will run if the bot starts, and logs in, successfully.
         console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
 
-        client.user.setActivity(`Big Boy's Server!`, { type: 'WATCHING' })
+        client.user.setActivity(`Big Boy's Server! | Do !help`, { type: 'WATCHING' })
       });
 
       /////////////////////////////////////////
-      const role = message.guild.roles.find(role => role.name === "MyRole")
+      const role = message.guild.roles.find(role => role.name === "👤 Member")
 
       client.on("guildMemberAdd", (member) => {
         client.channels.get('698863825121837079').send(`:partying_face: New User ${member} has joined our family, we hope you will enjoy your stay! :partying_face:`);
