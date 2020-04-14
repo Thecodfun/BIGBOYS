@@ -55,8 +55,8 @@
       const command = args.shift().toLowerCase();
       
   // Create an event listener for new guild members
-  client.on('guildMemberAdd', member => {
-    member.guild.channels.get('698863825121837079').send(`:partying_face: Welcome, ${member} We hope you will enjoy your stay!:partying_face: `);
+  client.on("guildMemberAdd", (member) => {
+    console.log(`New User "${member.user.username}" has joined "${member.guild.name}"` );
     if(!channel) return;
     if(!member) return;
   });
