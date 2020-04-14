@@ -126,6 +126,10 @@
           if(message.member.hasPermission("KICK_MEMBERS" || "ADMINISTRATOR"))
           {
           var member = message.mentions.members.first();
+          if (!member) 
+          {
+            message.reply(":x: You **MUST** specify a user to kick! :x:");
+          }
           member.kick("You have been kicked!")
           message.reply("User:" + member + " :white_check_mark: Has been kicked! :white_check_mark:")
           }
@@ -140,6 +144,10 @@
           if(message.member.hasPermission("BAN_MEMBERS" || "ADMINISTRATOR"))
           {
           var member = message.mentions.members.first();
+          if (!member) 
+          {
+            message.reply(":x: You **MUST** specify a user to ban! :x:");
+          }
           member.ban("You have been banned!")
           message.reply("User:" + member + " :white_check_mark: Has been banned! :white_check_mark:")
           }
@@ -186,7 +194,6 @@
             message.channel.fetchMessages({
              }).then((messages) => {
               if (member) {
-               
               const filterBy = member ? member.id : Client.member.id;
               messages = messages.filter(m => m.author.id === filterBy).array().slice(0, amount);
               }
@@ -203,9 +210,12 @@
         if(command === "getid")
         {
          { 
-           var member= message.mentions.members.first();
+           var member = message.mentions.members.first();
            var id = member.id.toString();
-
+           if (!member) 
+           {
+            message.reply(":x: You **MUST** specify a user to grab his ID! :x:");
+           }
             message.reply("this is:" + member+"'s" + " id: " + id)}
         }
 
@@ -227,13 +237,21 @@
            " If i'd have a face like yours, i'd sue my parents", " if i'd want to kill myself i would have to climb ut to your ego and jump down to your IQ.", " You are so fat that you don't need the internet, you are already worldwide.", " You're so fat that your favourite necklace is the food chain.",
             " You are so fat that when you wear a yellow raincoat people shout out 'taxi'", " You're so stupid that you thought a quarterback was a refund.", " You are so hairy that when you went hiking, another sighting of Bigfoot was reported.", " You are so hairy that when you take your dog for a walk, you get pet first.",
             " Those teeth look like you could eat an apple through a tennis racquet.", " No I'm not insulting you, I'm describing you.", " You're so fake, Barbie is jealous.", " I'd slap you, but that would be animal abuse.", "LOL RETARD."]
-          var member = message.mentions.members.first();
+          var member = message.mentions.members.first
+          if (!member) 
+          {
+            message.reply(":x: You **MUST** specify a user to insult! :x:");
+          }
           message.channel.send(member + a_insults[parseInt(getRandomArbitrary(1, 15))])
         }
 
         if (command === 'say')
         {
           var messeageToSend = message.content.slice(config.prefix.length && command.length + 1);
+          if (!messeageToSend) 
+          {
+            message.reply(":x: You **MUST** specify a message or input valid strings! :x:");
+          }
             message.channel.send(messeageToSend);
         }
       }); //DON'T FUCKING DELETE THIS
