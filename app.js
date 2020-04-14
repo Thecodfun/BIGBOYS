@@ -38,7 +38,7 @@
     
     // Create an event listener for new guild members
      client.on("guildMemberAdd", (member) => {
-      message.reply(`New User ${member.user.username} has joined ${member.guild.name}`);
+      client.channels.get('698863825121837079').send(`New User ${member.user.username} has joined ${member.guild.name}`);
     });
 
     client.on("message", async message => {
