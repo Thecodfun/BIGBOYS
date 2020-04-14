@@ -232,7 +232,7 @@
 
         if (command === "insult") 
         {
-          var member = message.mentions.members.first
+          var member = message.mentions.members.first();
           if (!member) 
           {
             message.reply(":x: You **MUST** specify a user to insult! :x:");
