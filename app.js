@@ -56,13 +56,11 @@
       
   // Create an event listener for new guild members
   client.on('guildMemberAdd', member => {
-    // Send the message to a designated channel on a server:
-    const channel = member.guild.channels.cache.find(ch => ch.name === 'welcome');
-    // Do nothing if the channel wasn't found on this server
-    if (!channel) return;
-    // Send the message, mentioning the member
-    channel.send(`:partying_face: Welcome, ${member} We hope you will enjoy your stay!:partying_face: `);
+    member.guild.channels.get('698863825121837079').send(`:partying_face: Welcome, ${member} We hope you will enjoy your stay!:partying_face: `);
+    if(!channel) return;
+    if(!member) return;
   });
+
   
   /////////////////////////////////////////
   function wait(ms)
