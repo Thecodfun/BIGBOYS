@@ -18,6 +18,11 @@
       const version = "Version 1.0.6"
       const botname = "Big Boy's Management BOT#9683"
       
+      //COIN API REQUESTS AND FILTERING.
+      fetch('https://api.coingecko.com/api/v3/coins/list')
+      .then(res => res.json())
+      .then(apiresponse => console.log(apiresponse))
+      .then( { } )
       
       client.on("ready", () => {
         antispam(client, {
@@ -263,10 +268,7 @@
       if (command === "coinprice") 
       {
         var coin = args[0];
-        fetch('https://api.coingecko.com/api/v3/coins/list')
-        .then(res => res.json())
-        .then(apiresponse => console.log(apiresponse))
-        .then( { } )
+
 
       }
       /////////////////////////////////////////         
