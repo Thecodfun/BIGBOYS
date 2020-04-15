@@ -1,12 +1,19 @@
-      // Load up the discord.js library & Better anti-spam
+      // Load up the needed libraries
       const Discord = require("discord.js");
       const antispam = require('better-discord-antispam');
+      const CoinGecko = require('coingecko-api');
 
+      //INSTANCING THE CLIENTS.
       const client = new Discord.Client();  
+      const CoinGeckoClient = new CoinGecko();
+
+      //REQUIRING THE CONFIG FOR THE PREFIX.
       const config = require('./config.json');
-      //PREFIX FOR COMANDS
+     
+      //PREFIX FOR COMANDS.
       const PREFIX = "!"  
-      //VERSION CONST
+
+      //MISC CONST.
       const version = "Version 1.0.6"
       const botname = "Big Boy's Management BOT#9683"
       
@@ -26,17 +33,19 @@
           timeMuted: 1000 * 600, // This is how much time member X will be muted. if not set, default would be 10 min.
           logChannel: "bot-spam-logs" // This is the channel where every report about spamming goes to. If it's not set up, it will attempt to create the channel.
         });
+
         // This event will run if the bot starts, and logs in, successfully.
         console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
 
         client.user.setActivity(`Big Boy's Server! | Do !help`, { type: 'WATCHING' })
       });
 
-      /////////////////////////////////////////
+      //EVENT LISTENER FOR GUILD MEMBER JOINED.
       client.on("guildMemberAdd", (member) => {
         client.channels.get('698863825121837079').send(`:partying_face: New User ${member} has joined our family, we hope you will enjoy your stay! :partying_face:`);
       });
       /////////////////////////////////////////
+
       client.on("message", async message => {
 
         if(message.author.bot) return;
@@ -48,7 +57,7 @@
         const command = args.shift().toLowerCase();
 
     
-    /////////////////////////////////////////
+    //Useful functions for general purpose.
     function wait(ms)
     {
     var d = new Date();
@@ -62,13 +71,15 @@
     }
     /////////////////////////////////////////
 
-        if(command === "ping") {
+
+    //Listeners For Commands.
+    if(command === "ping") {
           if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send((":x: You can't ping the bot! :x:")).then(msg => msg.delete(2000))
           const m = await message.channel.send("Ping?");
           m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
-          }
+      }
 
-          if(command === "admhelp") {
+      if(command === "admhelp") {
             if(message.member.hasPermission("KICK_MEMBERS" || "ADMINISTRATOR"))
             {
             let Myembed = new Discord.RichEmbed ()
@@ -87,9 +98,9 @@
             {
               message.reply(":x: You can't prompt admin commands list! :x:").then(msg => msg.delete(2000))
             }
-          }
+      }
 
-        if(command === "help") 
+    if(command === "help") 
         {
             let Myembed = new Discord.RichEmbed ()
             .setAuthor("Big Boy's BOT", "https://i.imgur.com/dRbevw3.jpg")
@@ -102,9 +113,9 @@
             .setTimestamp()
             .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || " + version)
             message.channel.send(Myembed)
-          }
+      }
       
-          if(command === "kick")
+      if(command === "kick")
           {
             if(message.member.hasPermission("KICK_MEMBERS" || "ADMINISTRATOR"))
             {
@@ -120,9 +131,9 @@
             {
               message.reply(":x: You can't kick other users! :x:").then(msg => msg.delete(2000))
             }
-          }
+      }
 
-          if(command === "ban")
+      if(command === "ban")
           {
             if(message.member.hasPermission("BAN_MEMBERS" || "ADMINISTRATOR"))
             {
@@ -138,9 +149,9 @@
             {
               message.reply(":x: You can't ban other users! :x:").then(msg => msg.delete(2000))
             }
-          }
+      }
 
-          if(command === "pdelete")
+      if(command === "pdelete")
           {
             if(message.member.hasPermission("MANAGE_MESSAGES" || "ADMINISTRATOR"))
             {
@@ -162,9 +173,9 @@
             {
               message.reply(":x: You can't delete messages! :x:").then(msg => msg.delete(2000))      
             }
-          }
+      }
 
-          if (command === "pudelete") 
+      if (command === "pudelete") 
           {
             if(message.member.hasPermission("MANAGE_MESSAGES" || "ADMINISTRATOR"))
             {
@@ -191,9 +202,9 @@
             {
               message.reply(":x: You can't delete other user's messages! :x:").then(msg => msg.delete(2000))            
             }
-          }
+      }
 
-          if(command === "getid")
+      if(command === "getid")
           {
             { 
             var member = message.mentions.members.first();
@@ -203,9 +214,9 @@
               message.reply(":x: You **MUST** specify a user to grab his ID! :x:").then(msg => msg.delete(2000))
             }
               message.reply("this is:" + member+"'s" + " id: " + id)}
-          }
+      }
 
-          if (command === "info")
+      if (command === "info")
           {
             let Myembed = new Discord.RichEmbed ()
             .setAuthor("Big Boy's BOT", "https://i.imgur.com/dRbevw3.jpg")
@@ -214,9 +225,9 @@
             .setTimestamp()
             .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || " + version)
             message.channel.send(Myembed)
-          }
+      }
 
-          if (command === "insult") 
+      if (command === "insult") 
           {
             var member = message.mentions.members.first();
             var randnum = Math.random()
@@ -236,9 +247,9 @@
             {
               message.channel.send(member + a_insults[parseInt(getRandomArbitrary(1, 15))])
             }
-          }
+      }
 
-          if (command === 'say')
+      if (command === "say")
           {
             var messeageToSend = message.content.slice(config.prefix.length && command.length + 1);
             if (!messeageToSend) 
@@ -246,6 +257,13 @@
               message.reply(":x: You **MUST** specify a message or input valid strings! :x:").then(msg => msg.delete(2000))
             }
               message.channel.send(messeageToSend);
-          }
-        }); //DON'T FUCKING DELETE THIS
-        client.login(process.env.token).catch(err => console.log(err)); 
+      }
+
+      if (command === "coin") 
+      {
+        let data = await CoinGeckoClient.coins.fetch('bitcoin', {});
+        message.reply(`${data}`)
+      }
+      /////////////////////////////////////////         
+    });
+    client.login(process.env.token).catch(err => console.log(err)); 
