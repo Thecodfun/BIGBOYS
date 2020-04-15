@@ -272,8 +272,8 @@
         else
         {
           var coinPrices = await CoinGeckoClient.simple.price({
-            ids:ids,
-            vs_currencies:vs_currencies
+            ids:`bitcoin,bitcoin-cash,ethereum,ethereum-cash,ethereum-classic,ripple,monero,monero-gold,monero-classic-xmc,monero-original,monero-token,dash,dash-cash,dash-diamond,litecoin,litecoin-cash,zcash,zcash-gold,zclassic`,
+            vs_currencies:`eur,usd,gbp,btc`
             })
             var response = ""
             vs_currencies.forEach(currency => 
