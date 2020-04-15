@@ -259,10 +259,15 @@
               message.channel.send(messeageToSend);
       }
 
-      if (command === "coin") 
+      if (command === "exchanges") 
       {
-        let data = await CoinGeckoClient.coins.fetch('bitcoin', {});
-        message.reply(`${data}`)
+        fetch('https://api.coingecko.com/api/v3/exchanges')
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          message.reply(data);
+        });
       }
       /////////////////////////////////////////         
     });
