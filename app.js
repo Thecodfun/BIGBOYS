@@ -259,9 +259,9 @@
               message.channel.send(messeageToSend);
       }
 
-      if (command === "coin") 
+      if (command === "coinlits") 
       {
-        let data = await CoinGeckoClient.coins.fetch('bitcoin', {});
+        let data = await CoinGeckoClient.coins.list()
         message.reply(`${data}`)
       }
       /////////////////////////////////////////         
