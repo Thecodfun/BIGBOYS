@@ -275,7 +275,7 @@
             ids:id,
             vs_currencies:vs_currencies
             })
-            if (!coinPrices) return message.reply("STA ANDANDO TUTTO MALE")
+            if (!vs_currencies) return message.reply("STA ANDANDO TUTTO MALE")
             var response = ""
             vs_currencies.forEach(currency => 
             {
