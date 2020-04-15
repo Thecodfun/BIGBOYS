@@ -260,11 +260,14 @@
               message.channel.send(messeageToSend);
       }
 
-      if (command === "exchanges") 
+      if (command === "coinprice") 
       {
-        fetch('https://api.coingecko.com/api/v3/exchanges')
+        var coin = args[0];
+        fetch('https://api.coingecko.com/api/v3/coins/list')
         .then(res => res.json())
-        .then(json => console.log(json));
+        .then(apiresponse => console.log(apiresponse))
+        .then( { } )
+
       }
       /////////////////////////////////////////         
     });
