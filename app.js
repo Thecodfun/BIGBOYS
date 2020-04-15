@@ -259,7 +259,7 @@
               message.channel.send(messeageToSend);
       }
 
-      if (command === "coinlits") 
+      if (command === "coinlist") 
       {
         let data = await CoinGeckoClient.coins.list()
         message.reply(`${data}`)
