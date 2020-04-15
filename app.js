@@ -2,6 +2,7 @@
       const Discord = require("discord.js");
       const antispam = require('better-discord-antispam');
       const CoinGecko = require('coingecko-api');
+      const fetch = require('node-fetch');
 
       //INSTANCING THE CLIENTS.
       const client = new Discord.Client();  
@@ -259,23 +260,11 @@
               message.channel.send(messeageToSend);
       }
 
-<<<<<<< HEAD
       if (command === "exchanges") 
       {
         fetch('https://api.coingecko.com/api/v3/exchanges')
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          message.reply(data);
-        });
-=======
-      if (command === "coinlist") 
-      {
-        let data = await CoinGeckoClient.coins.list()
-        let parseddata = JSON.parse(data)
-        message.reply(`${parseddata}`)
->>>>>>> 16a23e78c75c070cb9f71dc095dd1c5c21fc3d5b
+        .then(res => res.json())
+        .then(json => console.log(json));
       }
       /////////////////////////////////////////         
     });
