@@ -262,12 +262,12 @@
 
       if (command === "coinprice") 
       {
-        let ids = ['bitcoin', 'ethereum']
-        let vs_currencies =['eur', 'usd']
         let data = await CoinGeckoClient.simple.price({
-          ids:ids,
-          vs_currencies:vs_currencies,})
-          message.reply(`${ids[1]}`)
+          ids: ['bitcoin', 'ethereum'],
+          vs_currencies: ['eur', 'usd'].then(message.reply(ids[1]))
+          
+        });
+          
         
 
       }
