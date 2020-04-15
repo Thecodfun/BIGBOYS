@@ -262,9 +262,10 @@
 
       if (command === "coinprice") 
       {
-        fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cbitcoin-cash%2Cethereum%2Cethereum-cash%2Cethereum-classic%2Cripple%2Cmonero%2Cmonero-gold%2Cmonero-classic-xmc%2Cmonero-original%2Cmonero-token%2Cdash%2Cdash-cash%2Cdash-diamond%2Clitecoin%2Clitecoin-cash%2Czcash%2Czcash-gold%2Czclassic&vs_currencies=eur%2Cusd%2Cgbp%2Cbtc')
-        .then(res => res.json())
-        .then(json => console.log(json));
+        let data = await CoinGeckoClient.simple.price({
+          ids: ['bitcoin', 'ethereum'],
+          vs_currencies: ['eur', 'usd'],})
+          message.reply(`${ids.bitcoin}`)
         
 
       }
