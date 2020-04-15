@@ -262,27 +262,9 @@
 
       if (command === "coinprice") 
       {
-        let ids = ["bitcoin", "bitcoin-cash", "ethereum", "ethereum-cash", "ethereum-classic", "ripple", "monero", "monero-gold", "monero-classic-xmc", "monero-original", "monero-token", "dash", "dash-cash", "dash-diamond", "litecoin", "litecoin-cash", "zcash", "zcash-gold", "zclassic"]
-        let vs_currencies = ["eur", "usd", "gbp", "btc"]
-
-        if (!ids.includes(args[0])) 
-        {
-          message.reply("Invalid Currency!") 
-        }
-        else
-        {
-          var coinPrices = await CoinGeckoClient.simple.price({
-            ids:id,
-            vs_currencies:vs_currencies
-            })
-            if (!vs_currencies || !ids) return message.reply("STA ANDANDO TUTTO MALE")
-            var response = " "
-            vs_currencies.forEach(currency => 
-            {
-            response = `${currency}: ${coinPrices[args[0]][currency]}/n`    
-            });
-            message.reply(response)
-        }
+        fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cbitcoin-cash%2Cethereum%2Cethereum-cash%2Cethereum-classic%2Cripple%2Cmonero%2Cmonero-gold%2Cmonero-classic-xmc%2Cmonero-original%2Cmonero-token%2Cdash%2Cdash-cash%2Cdash-diamond%2Clitecoin%2Clitecoin-cash%2Czcash%2Czcash-gold%2Czclassic&vs_currencies=eur%2Cusd%2Cgbp%2Cbtc')
+        .then(res => res.json())
+        .then(json => console.log(json));
         
 
       }
