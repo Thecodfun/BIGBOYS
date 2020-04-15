@@ -262,7 +262,7 @@
       if (command === "coinlist") 
       {
         let data = await CoinGeckoClient.coins.list()
-        message.reply(`${data}`)
+        message.reply(`${JSON.parse(data)}`)
       }
       /////////////////////////////////////////         
     });
