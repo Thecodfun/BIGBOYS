@@ -265,7 +265,7 @@
         var ids = ['bitcoin', 'bitcoin-cash', 'ethereum', 'ethereum-cash', 'ethereum-classic', 'ripple', 'monero', 'monero-gold', 'monero-classic-xmc', 'monero-original', 'monero-token', 'dash', 'dash-cash', 'dash-diamond', 'litecoin', 'litecoin-cash', 'zcash', 'zcash-gold', 'zclassic']
         var vs_currencies = ['eur', 'usd', 'gbp', 'btc']
 
-        if (!ids.contains(args[0])) 
+        if (!ids.includes(args[0])) 
         {
           message.reply("Invalid Currency!") 
         }
