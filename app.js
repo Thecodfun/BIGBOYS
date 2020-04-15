@@ -272,9 +272,10 @@
         else
         {
           var coinPrices = await CoinGeckoClient.simple.price({
-            ids:`bitcoin,bitcoin-cash,ethereum,ethereum-cash,ethereum-classic,ripple,monero,monero-gold,monero-classic-xmc,monero-original,monero-token,dash,dash-cash,dash-diamond,litecoin,litecoin-cash,zcash,zcash-gold,zclassic`,
-            vs_currencies:`eur,usd,gbp,btc`
+            ids:id,
+            vs_currencies:vs_currencies
             })
+            if (!coinPrices) return message.reply("STA ANDANDO TUTTO MALE")
             var response = ""
             vs_currencies.forEach(currency => 
             {
