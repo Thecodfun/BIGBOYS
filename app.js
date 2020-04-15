@@ -259,6 +259,7 @@
               message.channel.send(messeageToSend);
       }
 
+<<<<<<< HEAD
       if (command === "exchanges") 
       {
         fetch('https://api.coingecko.com/api/v3/exchanges')
@@ -268,6 +269,13 @@
         .then((data) => {
           message.reply(data);
         });
+=======
+      if (command === "coinlist") 
+      {
+        let data = await CoinGeckoClient.coins.list()
+        let parseddata = JSON.parse(data)
+        message.reply(`${parseddata}`)
+>>>>>>> 16a23e78c75c070cb9f71dc095dd1c5c21fc3d5b
       }
       /////////////////////////////////////////         
     });
