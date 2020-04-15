@@ -18,12 +18,6 @@
       const version = "Version 1.0.6"
       const botname = "Big Boy's Management BOT#9683"
       
-      //COIN API REQUESTS AND FILTERING.
-      fetch('https://api.coingecko.com/api/v3/coins/list')
-      .then(res => res.json())
-      .then(apiresponse => console.log(apiresponse))
-      .then( { } )
-      
       client.on("ready", () => {
         antispam(client, {
           limitUntilWarn: 3, // The amount of messages allowed to send within the interval(time) before getting a warn.
@@ -50,6 +44,7 @@
       client.on("guildMemberAdd", (member) => {
         client.channels.get('698863825121837079').send(`:partying_face: New User ${member} has joined our family, we hope you will enjoy your stay! :partying_face:`);
       });
+
       /////////////////////////////////////////
 
       client.on("message", async message => {
@@ -267,8 +262,27 @@
 
       if (command === "coinprice") 
       {
-        var coin = args[0];
+        var ids = ['bitcoin', 'bitcoin-cash', 'ethereum', 'ethereum-cash', 'ethereum-classic', 'ripple', 'monero', 'monero-gold', 'monero-classic-xmc', 'monero-original', 'monero-token', 'dash', 'dash-cash', 'dash-diamond', 'litecoin', 'litecoin-cash', 'zcash', 'zcash-gold', 'zclassic']
+        var vs_currencies = ['eur', 'usd', 'gbp', 'btc']
 
+        if (!ids.contains(args[0])) 
+        {
+          message.reply("Invalid Currency!") 
+        }
+        else
+        {
+          var coinPrices = await CoinGeckoClient.simple.price({
+            ids:ids,
+            vs_currencies:vs_currencies
+            })
+            var response = ""
+            vs_currencies.forEach(currency => 
+            {
+            response += `${currency}: ${coinPrices[args[0]][currency]}/n`    
+            });
+            message.reply(response)
+        }
+        
 
       }
       /////////////////////////////////////////         
