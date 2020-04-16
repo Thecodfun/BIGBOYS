@@ -262,9 +262,9 @@
               message.channel.send(messeageToSend);
       }
 
-      if (command === "coinprice") 
+      if (command === "coinprice" || command === "coinprices") 
       {
-        let coinname = args[0].toLowerCase().trim()
+        let coinname = args[0].toLowerCase()
         let a_vs_currencies = ['eur', 'usd', 'gbp']
         if (!a_ids.includes(coinname)) 
         {
@@ -282,9 +282,9 @@
         }
       }
 
-      if (command === "coinslist") 
+      if (command === "coins") 
       {
-        message.reply(a_ids)
+        message.reply("\n" + a_ids)
       }
       /////////////////////////////////////////         
     });
