@@ -270,7 +270,7 @@
           vs_currencies:a_vs_currencies,})
 
           console.log(data)
-          message.reply(data['bitcoin']['eur'])
+          message.reply(data['data']['bitcoin']['eur'])
       }
       /////////////////////////////////////////         
     });
