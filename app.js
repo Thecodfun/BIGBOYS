@@ -273,8 +273,7 @@
           let apires = await CoinGeckoClient.simple.price({
             ids:[args[0]],
             vs_currencies:a_vs_currencies,})
-  
-            console.log(data)
+            
             let response = ""
             a_vs_currencies.forEach(cur => response += `${cur}: ${apires['data'][args[0]][cur]}\n`)
             message.reply(response)
