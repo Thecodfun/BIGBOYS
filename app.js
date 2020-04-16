@@ -266,7 +266,7 @@
       {
         let coinname = args[0].toLowerCase()
         let a_vs_currencies = ['eur', 'usd', 'gbp']
-        if (!a_ids.includes(args[0])) 
+        if (!a_ids.includes(coinname)) 
         {
            message.reply("The coin you have inserted is not in the coinlist!")
         }
