@@ -262,8 +262,7 @@
 
       if (command === "coinprice") 
       {
-        let a_ids = ['bitcoin', 'ethereum']
-        let a_vs_currencies = ['eur', 'usd']
+        let a_vs_currencies = ['eur', 'usd', 'gbp']
         if (!a_ids.includes(args[0])) 
         {
            message.reply("tua nonna caga il cazzo")
@@ -273,9 +272,9 @@
           let apires = await CoinGeckoClient.simple.price({
             ids:[args[0]],
             vs_currencies:a_vs_currencies,})
-            
+
             let response = ""
-            a_vs_currencies.forEach(cur => response += `${cur}: ${apires['data'][args[0]][cur]}\n`)
+            a_vs_currencies.forEach(cur => response += `\n${cur}: ${apires['data'][args[0]][cur]}`)
             message.reply(response)
         }
       }
