@@ -271,12 +271,13 @@
         }
         else
         {
+          let coinname = args[0].toLowercase()
           let apires = await CoinGeckoClient.simple.price({
             ids:[args[0]],
             vs_currencies:a_vs_currencies,})
 
             let response = ""
-            a_vs_currencies.forEach(cur => response += `\n${cur.toUpperCase()}: ${apires['data'][args[0].toLowerCase()][cur]}`)
+            a_vs_currencies.forEach(cur => response += `\n${cur.toUpperCase()}: ${apires['data'][coinname][cur]}`)
             message.reply(response)
         }
       }
