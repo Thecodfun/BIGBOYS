@@ -271,7 +271,7 @@
         }
         else
         {
-          let coinname = args[0].shift().toLowerCase()
+          let coinname = args.shift().toLowerCase()
           let apires = await CoinGeckoClient.simple.price({
             ids:[coinname],
             vs_currencies:a_vs_currencies,})
