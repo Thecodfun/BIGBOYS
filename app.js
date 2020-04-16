@@ -275,7 +275,7 @@
             vs_currencies:a_vs_currencies,})
 
             let response = ""
-            a_vs_currencies.forEach(cur => response += `\n${cur}: ${apires['data'][args[0]][cur]}`)
+            a_vs_currencies.forEach(cur => response += `\n${cur.toUpperCase()}: ${apires['data'][args[0]][cur]}`)
             message.reply(response)
         }
       }
