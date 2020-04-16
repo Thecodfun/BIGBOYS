@@ -264,7 +264,7 @@
 
       if (command === "coinprice") 
       {
-        let coinname = args[0].shift().toLowerCase()
+        let coinname = args[0].toLowerCase()
         let a_vs_currencies = ['eur', 'usd', 'gbp']
         if (!a_ids.includes(args[0])) 
         {
