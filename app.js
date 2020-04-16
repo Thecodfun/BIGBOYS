@@ -282,7 +282,7 @@
             vs_currencies:a_vs_currencies,})
 
             let response = ""
-            a_vs_currencies.forEach(cur => response += Myembed.addField(`${args[0].charAt(0).toUpperCase() + name.slice(1)} in ${cur['eur'].toUpperCase}: ${apires['data'][cur]}`),
+            Myembed.addField(`${args[0].charAt(0).toUpperCase() + name.slice(1)} in ${cur['eur'].toUpperCase}: ${apires['data'][cur]}`)
             message.channel.send(Myembed)
         
           //let apires = await CoinGeckoClient.simple.price({
