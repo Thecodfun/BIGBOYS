@@ -277,6 +277,7 @@
           ids:[coinname],
           vs_currencies:a_vs_currencies,})
 
+          console.log(apires)
           let response = ""
           a_vs_currencies.forEach(cur => response += `\n${cur.toUpperCase()}: ${apires['data'][coinname][cur]}`)
           message.reply(response)
