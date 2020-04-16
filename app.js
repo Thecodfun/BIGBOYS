@@ -262,6 +262,7 @@
 
       if (command === "coinprice") 
       {
+        let a_ids = ['bitcoin', 'bitcoin-cash', 'ethereum', 'ethereum-cash', 'ethereum-classic', 'ripple', 'monero', 'monero-gold', 'monero-classic-xmc', 'monero-original', 'monero-token', 'dash', 'dash-cash', 'dash-diamond', 'litecoin', 'litecoin-cash', 'zcash', 'zcash-gold', 'zclassic']
         let a_vs_currencies = ['eur', 'usd', 'gbp']
         if (!a_ids.includes(args[0])) 
         {
