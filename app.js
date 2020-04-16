@@ -17,6 +17,8 @@
       //MISC CONST.
       const version = "Version 1.0.6"
       const botname = "Big Boy's Management BOT#9683"
+      const a_ids = ['bitcoin', 'bitcoin-cash', 'ethereum', 'ethereum-cash', 'ethereum-classic', 'ripple', 'monero', 'monero-gold', 'monero-classic-xmc', 'monero-original', 'monero-token', 'dash', 'dash-cash', 'dash-diamond', 'litecoin', 'litecoin-cash', 'zcash', 'zcash-gold', 'zclassic']
+
       
       client.on("ready", () => {
         antispam(client, {
@@ -262,11 +264,10 @@
 
       if (command === "coinprice") 
       {
-        let a_ids = ['bitcoin', 'bitcoin-cash', 'ethereum', 'ethereum-cash', 'ethereum-classic', 'ripple', 'monero', 'monero-gold', 'monero-classic-xmc', 'monero-original', 'monero-token', 'dash', 'dash-cash', 'dash-diamond', 'litecoin', 'litecoin-cash', 'zcash', 'zcash-gold', 'zclassic']
         let a_vs_currencies = ['eur', 'usd', 'gbp']
         if (!a_ids.includes(args[0])) 
         {
-           message.reply("tua nonna caga il cazzo")
+           message.reply("The coin you have inserted is not in the coinlist!")
         }
         else
         {
@@ -275,9 +276,14 @@
             vs_currencies:a_vs_currencies,})
 
             let response = ""
-            a_vs_currencies.forEach(cur => response += `\n${cur.toUpperCase()}: ${apires['data'][args[0]][cur]}`)
+            a_vs_currencies.forEach(cur => response += `\n${cur.toUpperCase()}: ${apires['data'][args[0].toLowerCase()][cur]}`)
             message.reply(response)
         }
+      }
+
+      if (command === "coinslist") 
+      {
+        message.reply(ids)
       }
       /////////////////////////////////////////         
     });
