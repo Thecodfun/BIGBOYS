@@ -224,7 +224,7 @@
             let Myembed = new Discord.RichEmbed ()
             .setAuthor("Big Boy's BOT", "https://i.imgur.com/dRbevw3.jpg")
             .setColor("#34cdeb")
-            .addField("Info about the BOT!", "This BOT is meant to help administrating the server and making evryone's life easier, Current Update is "+ version +",BOT is made in node.js using Discord.js APIs")
+            .addField("Info about the BOT!", "This BOT is menat to help administrating the server and making evryone's life easier, Current Update is "+ version +",BOT is made in node.js using Discord.js APIs")
             .setTimestamp()
             .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || " + version)
             message.channel.send(Myembed)
@@ -270,17 +270,15 @@
         {
            message.reply("The coin you have inserted is not in the coinlist!")
         }
-        
         else
         {
-        let apires = await CoinGeckoClient.simple.price({
-          ids:[coinname],
-          vs_currencies:a_vs_currencies,})
+          let apires = await CoinGeckoClient.simple.price({
+            ids:[coinname],
+            vs_currencies:a_vs_currencies,})
 
-          console.log(apires)
-          let response = ""
-          a_vs_currencies.forEach(cur => response += `\n${cur.toUpperCase()}: ${apires['data'][coinname][cur]}`)
-          message.reply(response)
+            let response = ""
+            a_vs_currencies.forEach(cur => response += `\n${cur.toUpperCase()}: ${apires['data'][coinname][cur]}`)
+            message.reply(response)
         }
       }
 
