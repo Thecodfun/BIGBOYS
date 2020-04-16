@@ -289,11 +289,10 @@
             let Myembed = new Discord.RichEmbed ()
             .setAuthor("Big Boy's BOT", "https://i.imgur.com/dRbevw3.jpg")
             .setColor("#0007cc")
-            message.channel.send(Myembed)
             a_vs_currencies.forEach(cur => response += Myembed.addField("Coin Market Price Information", `${args[0].charAt(0).toUpperCase() + name.slice(1)} in ${cur.toUpperCase}: ${apires['data'][coinname][cur]}`)
             .setTimestamp()
             .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || " + version))
-            message.reply(response)
+            message.channel.send(Myembed)
         }
       }
 
