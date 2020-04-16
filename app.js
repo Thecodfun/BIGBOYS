@@ -15,7 +15,7 @@
       const PREFIX = "!"  
 
       //MISC CONST.
-      const version = "Version 1.0.6"
+      const version = "Version 1.1.0"
       const botname = "Big Boy's Management BOT#9683"
       const a_ids = ['bitcoin', 'bitcoin-cash', 'ethereum', 'ethereum-cash', 'ethereum-classic', 'ripple', 'monero', 'monero-gold', 'monero-classic-xmc', 'monero-original', 'monero-token', 'dash', 'dash-cash', 'dash-diamond', 'litecoin', 'litecoin-cash', 'zcash', 'zcash-gold', 'zclassic']
 
@@ -264,6 +264,7 @@
 
       if (command === "coinprice") 
       {
+        let coinname = args[0].shift().toLowerCase()
         let a_vs_currencies = ['eur', 'usd', 'gbp']
         if (!a_ids.includes(args[0])) 
         {
@@ -271,7 +272,6 @@
         }
         else
         {
-          let coinname = args.shift().toLowerCase()
           let apires = await CoinGeckoClient.simple.price({
             ids:[coinname],
             vs_currencies:a_vs_currencies,})
