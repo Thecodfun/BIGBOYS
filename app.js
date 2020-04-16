@@ -264,13 +264,21 @@
       {
         let a_ids = ['bitcoin', 'ethereum']
         let a_vs_currencies = ['eur', 'usd']
-
-        let data = await CoinGeckoClient.simple.price({
-          ids:a_ids,
-          vs_currencies:a_vs_currencies,})
-
-          console.log(data)
-          message.reply(data['data']['bitcoin']['eur'])
+        if (!a_ids.includes(args[0])) 
+        {
+           message.reply("tua nonna caga il cazzo")
+        }
+        else
+        {
+          let apires = await CoinGeckoClient.simple.price({
+            ids:[args[0]],
+            vs_currencies:a_vs_currencies,})
+  
+            console.log(data)
+            let response = ""
+            a_vs_currencies.forEach(cur => response += `${cur}: ${apires['data'][args[0]][cur]}\n`)
+            message.reply(response)
+        }
       }
       /////////////////////////////////////////         
     });
