@@ -113,6 +113,8 @@
          .addField("!getid **'@user'**", "Gets **'@user'** id.")
          .addField("!insult **'@user'**", "Insults with an old fashion the **'@user'**.")
          .addField("!say **'message'**", "Allows the bot say the **'message'** you typed.")
+         .addField("!coinprice **'coin'**", "Shows you realtime price of the desired coin.")
+         .addField("!coins", "Shows the list of coins, which can be used with the command !coinprice.")
          .setTimestamp()
          .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || " + version)
          message.channel.send(Myembed)
