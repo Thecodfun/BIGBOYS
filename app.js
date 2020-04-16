@@ -271,20 +271,19 @@
         }
         else
         {
-          let coinname = args[0].toLowerCase()
           let apires = await CoinGeckoClient.simple.price({
-            ids:[coinname],
+            ids:[args[0].toLowerCase()],
             vs_currencies:a_vs_currencies,})
 
             let response = ""
-            a_vs_currencies.forEach(cur => response += `\n${cur.toUpperCase()}: ${apires['data'][coinname][cur]}`)
+            a_vs_currencies.forEach(cur => response += `\n${cur.toUpperCase()}: ${apires['data'][args[0].toLowerCase()][cur]}`)
             message.reply(response)
         }
       }
 
       if (command === "coinslist") 
       {
-        message.reply(ids)
+        message.reply(a_ids)
       }
       /////////////////////////////////////////         
     });
