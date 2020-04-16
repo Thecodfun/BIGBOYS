@@ -269,7 +269,7 @@
           ids:a_ids,
           vs_currencies:a_vs_currencies,})
 
-          Console.log(data)
+          console.log(data)
           message.reply(data['bitcoin']['eur'])
       }
       /////////////////////////////////////////         
