@@ -284,7 +284,7 @@
 
       if (command === "coins") 
       {
-        message.reply("\n" + a_ids)
+        message.reply(`\n ${a_ids}`)
       }
       /////////////////////////////////////////         
     });
