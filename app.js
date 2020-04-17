@@ -17,6 +17,7 @@
    //MISC CONST.
    const version = "Version 1.1.0"
    const botname = "Big Boy's Management BOT#9683"
+   const bigboyo = "BigBoy#0549"
    const a_ids = ['bitcoin', 'bitcoin-cash', 'ethereum', 'ethereum-cash', 'ethereum-classic', 'ripple', 'monero', 'monero-gold', 'monero-classic-xmc', 'monero-original', 'monero-token', 'dash', 'dash-cash', 'dash-diamond', 'litecoin', 'litecoin-cash', 'zcash', 'zcash-gold', 'zclassic']
 
    
@@ -30,7 +31,7 @@
        maxDuplicatesWarning: 7,// When people are spamming the same message, this will trigger when member X sent over 7+ messages.
        maxDuplicatesMute: 10, // The limit where member X get muted after sending too many messages(10+).
        ignoredRoles: ["Admin"], // The members with this role(or roles) will be ignored if they have it. Suggest to not add this to any random guys. Also it's case sensitive.
-       ignoredMembers: ["🤠₿ig ₿oy🤠#0549", "C Sharp#4754"], // These members are directly affected and they do not require to have the role above. Good for undercover pranks.
+       ignoredMembers: [bigboyo, "C Sharp#4754"], // These members are directly affected and they do not require to have the role above. Good for undercover pranks.
        mutedRole: "Muted", // Here you put the name of the role that should not let people write/speak or anything else in your server. If there is no role set, by default, the module will attempt to create the role for you & set it correctly for every channel in your server. It will be named "muted".
        timeMuted: 1000 * 600, // This is how much time member X will be muted. if not set, default would be 10 min.
        logChannel: "bot-spam-logs" // This is the channel where every report about spamming goes to. If it's not set up, it will attempt to create the channel.
@@ -94,7 +95,7 @@
          .addField("!kick **'@user'**", "Kicks the mentioned user out of the server.")
          .addField("!ping", "Checks your latency to the bot.")
          .setTimestamp()
-         .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || " + version)
+         .setFooter("(BOT Made By "+ bigboyo +") || " + version)
          message.channel.send(Myembed)
          }
          else
@@ -116,7 +117,7 @@
          .addField("!coinprice **'coin'**", "Shows you realtime price of the desired coin.")
          .addField("!coins", "Shows the list of coins, which can be used with the command !coinprice.")
          .setTimestamp()
-         .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || " + version)
+         .setFooter("(BOT Made By "+ bigboyo +") || " + version)
          message.channel.send(Myembed)
    }
    
@@ -228,7 +229,7 @@
          .setColor("#34cdeb")
          .addField("Info about the BOT!", "This BOT is meant to help administrating the server and making evryone's life easier, Current Update is "+ version +",BOT is made in node.js using Discord.js APIs")
          .setTimestamp()
-         .setFooter("(BOT Made By 🤠₿ig ₿oy🤠#0549) || " + version)
+         .setFooter("(BOT Made By "+ bigboyo +"|| " + version)
          message.channel.send(Myembed)
    }
 
@@ -286,7 +287,7 @@
 
    if (command === "coins") 
    {
-     message.reply(`\n ${a_ids}`)
+     message.reply(`${a_ids}`)
    }
    /////////////////////////////////////////         
  });
