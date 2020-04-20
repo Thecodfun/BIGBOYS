@@ -47,7 +47,7 @@
    //EVENT LISTENER FOR GUILD MEMBER JOINED.
    client.on("guildMemberAdd", (member) => {
      client.channels.get('698863825121837079').send(`:partying_face: New User ${member} has joined our family, we hope you will enjoy your stay! :partying_face:`);
-     let role = message.guild.roles.get("701790157816463420")
+     let role = member.guild.roles.get("701790157816463420")
      member.roles.add(role)
    });
 
