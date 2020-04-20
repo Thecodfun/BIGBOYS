@@ -3,6 +3,7 @@
    const antispam = require('better-discord-antispam');
    const CoinGecko = require('coingecko-api');
    const fetch = require('node-fetch');
+   const date = require('date-and-time');
 
    //INSTANCING THE CLIENTS.
    const client = new Discord.Client();  
@@ -46,6 +47,7 @@
    //EVENT LISTENER FOR GUILD MEMBER JOINED.
    client.on("guildMemberAdd", (member) => {
      client.channels.get('698863825121837079').send(`:partying_face: New User ${member} has joined our family, we hope you will enjoy your stay! :partying_face:`);
+     guildMember.addRole(message.guild.roles.get(role => role.id === "701790157816463420"));
    });
 
    /////////////////////////////////////////
